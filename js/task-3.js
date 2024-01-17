@@ -1,0 +1,77 @@
+// // firts approach
+
+class StringBuilder {
+  #value;
+  constructor(initialValue) {
+    this.#value = initialValue;
+  }
+  getValue() {
+    return this.#value;
+  }
+  padStart(str) {
+    if (str) {
+      this.#value = str.concat(this.#value);
+    }
+  }
+  padEnd(str) {
+    if (str) {
+      this.#value = this.#value.concat(str);
+    }
+  }
+  padBoth(str) {
+    if (str) {
+      this.#value = str.concat(this.#value, str);
+    }
+  }
+}
+
+const builder = new StringBuilder(".");
+console.log(builder.getValue()); // "."
+builder.padStart("^");
+console.log(builder.getValue()); // "^."
+builder.padEnd("^");
+console.log(builder.getValue()); // "^.^"
+builder.padBoth("=");
+console.log(builder.getValue()); // "=^.^="
+
+// second approach (my own method)
+// class StringBuilder {
+//   #value;
+//   constructor(initialValue) {
+//     this.#value = initialValue;
+//   }
+
+//   getValue() {
+//     return this.#value;
+//   }
+//   padEnd(str) {
+//     if (str) {
+//       this.#value = [...this.#value, ...str];
+//     }
+//   }
+//   padStart(str) {
+//     if (str) {
+//       this.#value = [...str, ...this.#value];
+//     }
+//   }
+//   padBoth(str) {
+//     if (str) {
+//       this.#value = [...str, ...this.#value, ...str];
+//     }
+//   }
+
+//   returnToString() {
+//     return this.#value.join("");
+//   }
+// }
+
+// const builder = new StringBuilder(".");
+// console.log(builder.getValue()); // "."
+// builder.padStart("^");
+// console.log(builder.getValue()); // "^."
+// builder.padEnd("^");
+// console.log(builder.getValue()); // "^.^"
+// builder.padBoth("=");
+// console.log(builder.getValue()); // "=^.^="
+// builder.returnToString();
+// console.log(builder.returnToString());
